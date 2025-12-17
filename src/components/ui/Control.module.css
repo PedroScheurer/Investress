@@ -1,0 +1,18 @@
+.control {
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    color: #fff
+}
+
+.control label {
+    font-size: large;
+}
+
+.control input {
+    border: 1px solid #007f5f;
+    border-radius: 5px;
+    height: 30px;
+}

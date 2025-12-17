@@ -1,0 +1,9 @@
+.ativo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #d8f3dc;
+    color: black;
+    border-radius: 10px;
+}
