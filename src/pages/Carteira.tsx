@@ -1,5 +1,5 @@
-import { Ativos, AtivoItem } from "../components"
-import classes from "./Carteira.module.css"
+import { Itens, AtivoItem } from "../components"
+import Title from "../components/ui/Title"
 
 const mockedAtivos = [
   { id: '0', tipo: 'Ações', valor: 10000 },
@@ -15,13 +15,13 @@ const totalValorInvestido = mockedAtivos.reduce((total, ativo) => {
 
 const Carteira = () => {
   return (
-    <div className={classes.carteira}>
-      Carteira
-      <Ativos>
+    <div className="container">
+      <Title>Carteira de Investimentos</Title>
+      <Itens>
         {mockedAtivos.map(ativo => (
-          <AtivoItem ativo={ativo} peso={ativo.valor / totalValorInvestido} />
+          <AtivoItem key={ativo.id} ativo={ativo} peso={ativo.valor / totalValorInvestido} />
         ))}
-      </Ativos>
+      </Itens>
     </div>
   )
 }

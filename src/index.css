@@ -4,7 +4,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: #000;
   background-color: #007f5f;
 
   font-synthesis: none;
@@ -13,11 +13,35 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html,
+body, #root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+
 a {
   text-decoration: none;
   color: blue;
 }
+
 a:hover {
   text-decoration: none;
   color: rgb(69, 44, 255);
+}
+
+.container {
+    margin: 0 auto;
+    width: 90%;
+    background-color: #d8f3dc;
+    padding: 20px;
+
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 90%;
 }

@@ -1,4 +1,4 @@
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 
 import { useHandlerInput } from '../hooks/useHandlerInput'
 import Control from './ui/Control'
@@ -8,13 +8,19 @@ import classes from "./Form.module.css"
 
 const LoginForm = () => {
     const { formData, handleChange } = useHandlerInput({ email: "", senha: "" })
-    
+    const navigate = useNavigate();
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault()
+        navigate('/carteira')
+    }
+
     return (
         <div className={classes.form}>
             <Title>Login</Title>
-            <form >
+            <form onSubmit={handleSubmit}>
                 <Control id='email' label='Email'
-                    props={{ type: 'email', placeholder: 'Digite seu email', name: 'email', onChange: handleChange,  value: formData.email }} />
+                    props={{ type: 'email', placeholder: 'Digite seu email', name: 'email', onChange: handleChange, value: formData.email }} />
                 <Control id='senha' label='Senha'
                     props={{ type: 'password', placeholder: 'Digite sua senha', name: 'senha', onChange: handleChange, value: formData.senha }} />
                 <Button>Entrar</Button>

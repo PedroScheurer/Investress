@@ -1,0 +1,30 @@
+.navContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: #d8f3dc;
+    position: sticky;
+    top: 0;
+    padding: 10px 5px;
+    width: 200px;
+    height: 100vh;
+}
+
+.navContainer ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 10px 0;
+    padding: 0 30px;
+    gap: 1rem;
+}
+
+.navContainer img {
+    width: 50px;
+    height: auto;
+}
+
+.navContainer a {
+    font-size: 1.5em;
+    font-weight: 500;
+    color: black;
+}

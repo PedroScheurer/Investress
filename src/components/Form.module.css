@@ -1,8 +1,8 @@
 .form {
     display: flex;
     flex-direction: column;
-    max-width: 30%;
-    background-color: #2b9348;
+    max-width: 500px;
+    background-color: #d8f3dc;
     padding: 30px 20px;
     margin: 0 auto;
     border-radius: 20px;

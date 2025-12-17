@@ -1,6 +1,7 @@
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
-import Ativos from "./Ativos";
+import Itens from "./Itens";
 import AtivoItem from "./AtivoItem";
+import MainNavigation from "./MainNavigation";
 
-export { LoginForm, RegisterForm, Ativos, AtivoItem }
+export { LoginForm, RegisterForm, Itens, AtivoItem, MainNavigation }

@@ -1,0 +1,8 @@
+.itens {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+    overflow-y: auto;
+    min-height: 0;
+}

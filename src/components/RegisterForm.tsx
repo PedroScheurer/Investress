@@ -9,10 +9,14 @@ import { useHandlerInput } from '../hooks/useHandlerInput'
 const RegisterForm = () => {
     const { formData, handleChange } = useHandlerInput({ nomeCompleto: "", email: "", senha: "", confirmarSenha: "" })
 
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault()
+    }
+
     return (
         <div className={classes.form}>
             <Title>Cadastrar-se</Title>
-            <form >
+            <form onSubmit={handleSubmit}>
                 <Control id='nome' label='Nome Completo'
                     props={{
                         type: 'text', placeholder: 'Digite seu nome completo',
