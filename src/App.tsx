@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router"
 import { Home, Login, Register, Carteira, Testes, RootLayout } from "./pages"
+import ModalProvider from "./providers/ModalProvider"
 
 const router = createBrowserRouter([
   {
@@ -15,7 +16,9 @@ const router = createBrowserRouter([
 
 const App = () => {
   return (
-    <RouterProvider router={router} />
+    <ModalProvider>
+      <RouterProvider router={router} />
+    </ModalProvider>
   )
 }
 

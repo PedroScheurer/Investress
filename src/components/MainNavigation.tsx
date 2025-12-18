@@ -10,13 +10,13 @@ const MainNavigation = () => {
             </div>
             <ul>
                 <li>
-                    <NavLink to='/carteira'>Carteira</NavLink>
+                    <NavLink to='/carteira' className={({ isActive }) => isActive ? classes.active : undefined}>Carteira</NavLink>
                 </li>
                 <li>
-                    <NavLink to='/testes'>Testes</NavLink>
+                    <NavLink to='/testes' className={({ isActive }) => isActive ? classes.active : undefined}>Testes</NavLink>
                 </li>
             </ul>
-        </nav>
+        </nav >
     )
 }
 

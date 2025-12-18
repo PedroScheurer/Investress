@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: #000;
-  background-color: #007f5f;
+  background-color: #d8f3dc;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -18,7 +18,8 @@
 }
 
 html,
-body, #root {
+body,
+#root {
   height: 100%;
   margin: 0;
   overflow: hidden;
@@ -36,12 +37,14 @@ a:hover {
 }
 
 .container {
-    margin: 0 auto;
-    width: 90%;
-    background-color: #d8f3dc;
-    padding: 20px;
+  margin: 0 auto;
+  width: 90%;
+  background-color: #d8f3dc;
+  padding: 20px;
 
-    display: grid;
-    grid-template-rows: auto 1fr;
-    height: 90%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 90%;
+
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }

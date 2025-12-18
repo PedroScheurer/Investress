@@ -1,5 +1,5 @@
 import React from 'react'
-import classes from "./AtivoItem.module.css"
+import classes from "./Item.module.css"
 import Title from './ui/Title'
 
 type Ativo = {
@@ -13,7 +13,7 @@ type Ativo = {
 
 const AtivoItem: React.FC<Ativo> = ({ ativo, peso }) => {
     return (
-        <div className={classes.ativo}>
+        <div className={classes.item}>
             <div>
                 <Title>{ativo.tipo}</Title>
                 <span>R$ {ativo.valor}</span>

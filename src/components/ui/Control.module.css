@@ -1,8 +1,6 @@
 .control {
     display: flex;
     flex-direction: column;
-    max-width: 80%;
-    margin: 0 auto;
     margin-bottom: 10px;
     color: #000
 }
@@ -12,7 +10,9 @@
 }
 
 .control input {
-    border: 1px solid #007f5f;
-    border-radius: 5px;
-    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    height: 36px;
+    padding: 0 10px;
+    font-size: 1rem;
 }

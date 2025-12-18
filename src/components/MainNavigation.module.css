@@ -1,7 +1,7 @@
 .navContainer {
     display: flex;
     flex-direction: column;
-    background-color: #d8f3dc;
+    background-color: #007f5f;
     position: sticky;
     top: 0;
     padding: 10px 5px;
@@ -22,9 +22,19 @@
     width: 50px;
     height: auto;
 }
-
 .navContainer a {
     font-size: 1.5em;
     font-weight: 500;
-    color: black;
+    color: #d8f3dc;
+}
+
+.navContainer a:hover {
+    font-size: 1.5em;
+    font-weight: 500;
+    color: #fff;
+}
+
+.navContainer a.active {
+    color: #fff;
+    border-bottom: 2px solid black;
 }

@@ -1,5 +1,7 @@
-import { Itens, AtivoItem } from "../components"
+import { Itens, AtivoItem, NovoInvestimento } from "../components"
 import Title from "../components/ui/Title"
+import Button from "../components/ui/Button"
+import { useModal } from "../hooks/useModal"
 
 const mockedAtivos = [
   { id: '0', tipo: 'Ações', valor: 10000 },
@@ -14,15 +16,21 @@ const totalValorInvestido = mockedAtivos.reduce((total, ativo) => {
 }, 0)
 
 const Carteira = () => {
+  const { open } = useModal()
+
   return (
-    <div className="container">
-      <Title>Carteira de Investimentos</Title>
-      <Itens>
-        {mockedAtivos.map(ativo => (
-          <AtivoItem key={ativo.id} ativo={ativo} peso={ativo.valor / totalValorInvestido} />
-        ))}
-      </Itens>
-    </div>
+    <>
+      <div className="container">
+        <Title>Carteira de Investimentos</Title>
+        <Button onClick={() => open('modalNovoInvestimento')} >Novo investimento</Button>
+        <Itens>
+          {mockedAtivos.map(ativo => (
+            <AtivoItem key={ativo.id} ativo={ativo} peso={ativo.valor / totalValorInvestido} />
+          ))}
+        </Itens>
+      </div>
+      <NovoInvestimento />
+    </>
   )
 }
 
