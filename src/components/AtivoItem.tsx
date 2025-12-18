@@ -1,6 +1,7 @@
 import React from 'react'
 import classes from "./Item.module.css"
 import Title from './ui/Title'
+import { useNavigate } from 'react-router'
 
 type Ativo = {
     ativo: {
@@ -12,8 +13,9 @@ type Ativo = {
 }
 
 const AtivoItem: React.FC<Ativo> = ({ ativo, peso }) => {
+    const navigate = useNavigate()
     return (
-        <div className={classes.item}>
+        <div className={classes.item} onClick={()=>navigate(`${ativo.tipo}`)}>
             <div>
                 <Title>{ativo.tipo}</Title>
                 <span>R$ {ativo.valor}</span>

@@ -1,5 +1,6 @@
 .item {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     padding: 20px 30px;
@@ -8,4 +9,16 @@
     color: black;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.item:hover{
+    cursor: pointer;
+    background-color: #c3facb;
+}
+
+@media (min-width:768px) {
+    .item {
+        flex-direction:row;
+    }
+
 }

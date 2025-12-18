@@ -38,13 +38,16 @@ a:hover {
 
 .container {
   margin: 0 auto;
-  width: 90%;
+  width: 100%;
   background-color: #d8f3dc;
   padding: 20px;
 
   display: grid;
-  grid-template-rows: auto 1fr;
-  height: 90%;
+  grid-template-rows: auto auto 1fr;
+
+  height: 85vh;
+  overflow-y: auto;
+  align-content: start;
 
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }

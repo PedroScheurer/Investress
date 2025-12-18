@@ -25,7 +25,15 @@
 
 .grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1.2rem;
     width: 100%;
+}
+
+@media (min-width:768px) {
+    .grid {
+        grid-template-columns: 2fr 1fr 1fr;
+        
+    }
+
 }

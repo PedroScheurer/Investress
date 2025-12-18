@@ -1,31 +1,33 @@
 .button {
-    font-size: large;
+    font-size: 15px;
     padding: 10px 30px;
     margin: 10px 0;
-    background-color: #d4d700;
     border: none;
     border-radius: 5px;
     transition: background-color 300ms;
-    max-width:300px;
+    justify-self: start;
+    width: fit-content;
 }
 
-.button:hover {
-    background-color: #eeef20;
+.button:hover{
     cursor: pointer;
+}
+
+.solid {
+    background-color: #d4d700;
+}
+
+.solid:hover {
+    background-color: #eeef20;
     transition: background-color 300ms;
 }
 
 .text_button {
-    font-size: large;
-    border: none;
-    margin: 10px 0;
     background: none;
     color: #d4d700;
     transition: color 300ms;
 }
 
 .text_button:hover {
-    border: none;
-    cursor: pointer;
     color: #eeef20;
 }

@@ -1,5 +1,5 @@
 .navContainer {
-    display: flex;
+    display: none;
     flex-direction: column;
     background-color: #007f5f;
     position: sticky;
@@ -22,6 +22,7 @@
     width: 50px;
     height: auto;
 }
+
 .navContainer a {
     font-size: 1.5em;
     font-weight: 500;
@@ -37,4 +38,15 @@
 .navContainer a.active {
     color: #fff;
     border-bottom: 2px solid black;
+}
+
+.fechado{
+    display: none;
+}
+
+@media (min-width:768px) {
+    .navContainer {
+        display: flex;
+    }
+
 }

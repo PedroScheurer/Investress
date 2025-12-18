@@ -1,12 +1,18 @@
 import { createBrowserRouter, RouterProvider } from "react-router"
-import { Home, Login, Register, Carteira, Testes, RootLayout } from "./pages"
+import { Home, Login, Register, Carteira, Testes, RootLayout, Investimentos } from "./pages"
+import { CarteiraHome } from "./components"
 import ModalProvider from "./providers/ModalProvider"
 
 const router = createBrowserRouter([
   {
     path: '/', element: <RootLayout />, children: [
       { index: true, element: <Home /> },
-      { path: "carteira", element: <Carteira /> },
+      {
+        path: "carteira", element: <Carteira />, children: [
+          { index: true, element: <CarteiraHome /> },
+          { path: ":tipo", element: <Investimentos /> }
+        ]
+      },
       { path: "testes", element: <Testes /> },
     ],
   },

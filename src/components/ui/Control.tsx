@@ -6,7 +6,7 @@ type Props = {
     label: string,
     props: object,
     className?: string,
-}
+} & React.InputHTMLAttributes<HTMLInputElement>
 
 const Control: React.FC<Props> = ({ id, label, props, className }) => {
     return (

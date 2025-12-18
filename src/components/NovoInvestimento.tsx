@@ -5,6 +5,7 @@ import Control from './ui/Control'
 import Button from './ui/Button'
 import { useHandlerInput } from '../hooks/useHandlerInput'
 import classes from "./Form.module.css"
+
 import { useModal } from '../hooks/useModal'
 
 const NovoInvestimento = () => {
@@ -33,11 +34,11 @@ const NovoInvestimento = () => {
 
                     </div>
                     <Button onClick={(e) => {
-                        e.preventDefault(); // Evita qualquer comportamento de form
-                        e.stopPropagation(); // Evita que o evento suba
+                        e.preventDefault();
+                        e.stopPropagation();
                         close();
-                    }} type='button' >Cancelar</Button>
-                    <Button>Confirmar</Button>
+                    }} type='button' className={classes.solid}>Cancelar</Button>
+                    <Button className={classes.solid}>Confirmar</Button>
                 </form>
             </>
         </Modal>

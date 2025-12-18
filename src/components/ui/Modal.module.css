@@ -1,7 +1,7 @@
 .modal {
     display: none;
     flex-direction: column;
-    width: 40%;
+    width: 100%;
     background-color: #d8f3dc;
     color: black;
     border-radius: 10px;
@@ -10,5 +10,12 @@
 }
 
 .modal[open] {
-    display: flex; /* ou block, dependendo do seu layout */
+    display: flex;
+}
+
+@media (min-width:768px) {
+    .modal {
+        width: 50%;
+    }
+
 }
