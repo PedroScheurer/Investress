@@ -1,6 +1,6 @@
 import { Link } from 'react-router'
 import Control from './ui/Control'
-import Button from './ui/Button'
+import Button, { ButtonStyles } from './ui/Button'
 import Title from './ui/Title'
 import classes from "./Form.module.css"
 import { useHandlerInput } from '../hooks/useHandlerInput'
@@ -37,7 +37,7 @@ const RegisterForm = () => {
                         type: 'password', placeholder: 'Digite sua senha novamente',
                         name: "confirmarSenha", onChange: handleChange, value: formData.confirmarSenha
                     }} />
-                <Button>Cadastrar</Button>
+                <Button className={ButtonStyles.solid}>Cadastrar</Button>
             </form>
             <span>Já tem uma conta?<Link to="/login"> Entrar</Link></span>
         </div>

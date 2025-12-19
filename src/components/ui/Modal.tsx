@@ -26,18 +26,15 @@ const Modal: React.FC<Props> = ({ children, id, className }) => {
             if (!modal.open) {
                 modal.showModal();
             }
-        } else {
-            if (modal.open) {
-                modal.close();
-            }
+        } else if (modal.open) {
+            modal.close();
         }
 
     }, [isOpen])
 
-    // Melhore o tratamento do evento onClose nativo
     const handleNativeClose = () => {
         if (isOpen) {
-            close(); // Sincroniza o estado global se o usuário apertar 'Esc'
+            close();
         }
     };
 

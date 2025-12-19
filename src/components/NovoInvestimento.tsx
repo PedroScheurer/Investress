@@ -2,7 +2,7 @@ import React from 'react'
 import Modal from './ui/Modal'
 import Title from './ui/Title'
 import Control from './ui/Control'
-import Button from './ui/Button'
+import Button, { ButtonStyles } from './ui/Button'
 import { useHandlerInput } from '../hooks/useHandlerInput'
 import classes from "./Form.module.css"
 
@@ -33,12 +33,14 @@ const NovoInvestimento = () => {
                             props={{ type: 'text', placeholder: 'Digite o valor', name: 'valor', onChange: handleChange, value: formData.valor }} />
 
                     </div>
-                    <Button onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        close();
-                    }} type='button' className={classes.solid}>Cancelar</Button>
-                    <Button className={classes.solid}>Confirmar</Button>
+                    <div className='header end'>
+                        <Button onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            close();
+                        }} type='button' >Cancelar</Button>
+                        <Button className={ButtonStyles.solid}>Confirmar</Button>
+                    </div>
                 </form>
             </>
         </Modal>

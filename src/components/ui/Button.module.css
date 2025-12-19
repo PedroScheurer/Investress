@@ -31,3 +31,12 @@
 .text_button:hover {
     color: #eeef20;
 }
+
+.cancel{
+    color: #9e0000;
+}
+
+.outline_cancel{
+    border: 1px solid #9e0000;
+    border-radius: 5px;
+}

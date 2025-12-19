@@ -1,6 +1,5 @@
-import React from 'react'
 import Container from './Container'
-import Button from './ui/Button'
+import Button, { ButtonStyles } from './ui/Button'
 import Itens from './Itens'
 import AtivoItem from './AtivoItem'
 import { useModal } from '../hooks/useModal'
@@ -21,7 +20,10 @@ const CarteiraHome = () => {
     const { open } = useModal()
     return (
         <Container title='Carteira de Investimentos'>
-            <Button onClick={() => open('modalNovoInvestimento')} >Novo investimento</Button>
+            <div className='header'>
+                <span>Total Investido: R${totalValorInvestido}</span>
+                <Button className={`end ${ButtonStyles.solid}`} onClick={() => open('modalNovoInvestimento')} >Novo investimento</Button>
+            </div>
             <Itens>
                 {mockedAtivos.map(ativo => (
                     <AtivoItem key={ativo.id} ativo={ativo} peso={ativo.valor / totalValorInvestido} />

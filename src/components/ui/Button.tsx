@@ -7,7 +7,6 @@ type Props = {
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button: React.FC<Props> = ({ children, className, ...props }) => {
-    console.log("Classes carregadas:", classes);
     return (
         <button className={`${classes.button} ${className}`} {...props}>
             {children}
@@ -16,3 +15,5 @@ const Button: React.FC<Props> = ({ children, className, ...props }) => {
 }
 
 export default Button
+
+export const ButtonStyles = classes;

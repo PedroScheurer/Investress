@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import Container from './Container'
-import Button from './ui/Button'
 import Itens from './Itens'
 import InvestimentoItem from './InvestimentoItem'
-import { useModal } from '../hooks/useModal'
 
 type Investimento = {
   id: string,
@@ -25,7 +23,6 @@ const mockedFiis: Array<Investimento> = [
 const Investimentos = () => {
   const [investimentos, setInvestimento] = useState<Array<Investimento>>([])
   const { tipo } = useParams()
-  const { open } = useModal()
 
   const loader = () => {
     // get investimentos por tipo
@@ -42,8 +39,7 @@ const Investimentos = () => {
   }, [investimentos])
 
   return (
-    <Container title={`${tipo}`}>
-      <Button onClick={() => open('modalNovoInvestimento')} >Novo investimento</Button>
+    <Container title={`${tipo}`} navLevelUp>
       <Itens>
         {investimentos.map(investimento => (
           <InvestimentoItem key={investimento.id} investimento={investimento} />

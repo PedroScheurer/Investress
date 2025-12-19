@@ -1,0 +1,21 @@
+.nav_button{
+    position: fixed;
+    top: 80%;
+    left: 80%;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 4px;
+    z-index: 100;
+}
+
+.nav_button img{
+    padding-top: 5px;
+    width: 30px;
+}
+
+@media (min-width:768px) {
+    .nav_button{
+        display: none;
+    }
+}

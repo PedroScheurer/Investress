@@ -8,6 +8,10 @@ import NovoInvestimento from "./NovoInvestimento";
 import Container from "./Container";
 import CarteiraHome from "./CarteiraHome";
 import InvestimentoItem from "./InvestimentoItem";
+import NavButton from "./NavButton";
+import TesteDetails from "./TesteDetails";
+import TestesHome from "./TestesHome";
+import Investimentos from "./Investimentos";
 
 export {
     LoginForm,
@@ -19,5 +23,9 @@ export {
     NovoInvestimento,
     Container,
     CarteiraHome,
-    InvestimentoItem
+    InvestimentoItem,
+    NavButton,
+    TestesHome,
+    TesteDetails,
+    Investimentos,
 }

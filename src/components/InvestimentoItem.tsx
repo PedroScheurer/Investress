@@ -1,6 +1,7 @@
 import React from 'react'
 import classes from "./Item.module.css"
 import Title from './ui/Title'
+import moreButton from "../assets/more.png"
 
 type Props = {
     investimento: {
@@ -17,6 +18,9 @@ const InvestimentoItem : React.FC<Props> = ({investimento}) => {
                 <Title>{investimento.nome}</Title>
                 <span>R$ {investimento.valor}</span>
             </div>
+            <button className={`end ${classes.details}`}>
+                <img src={moreButton} alt="Botão de Detalhes" title='Detalhes' />
+            </button>
         </div>
     )
 }

@@ -1,7 +1,10 @@
+import { Container } from "../components"
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <Container title="Início">
+      teste
+    </Container>
   )
 }
 

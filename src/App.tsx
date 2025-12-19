@@ -1,7 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router"
-import { Home, Login, Register, Carteira, Testes, RootLayout, Investimentos } from "./pages"
-import { CarteiraHome } from "./components"
+import { Home, Login, Register, Carteira, Testes, RootLayout } from "./pages"
+import { CarteiraHome, Investimentos, TesteDetails, TestesHome } from "./components"
 import ModalProvider from "./providers/ModalProvider"
+import "./App.css"
 
 const router = createBrowserRouter([
   {
@@ -13,7 +14,12 @@ const router = createBrowserRouter([
           { path: ":tipo", element: <Investimentos /> }
         ]
       },
-      { path: "testes", element: <Testes /> },
+      {
+        path: "testes", element: <Testes />, children: [
+          { index: true, element: <TestesHome /> },
+          { path: ":tipo", element: <TesteDetails /> }
+        ]
+      },
     ],
   },
   { path: "/login", element: <Login /> },
