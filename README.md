@@ -8,7 +8,7 @@
 
 **Investress** é uma aplicação front-end voltada para **gerenciamento de investimentos** e **execução de testes de estresse**, permitindo analisar como uma carteira pode se comportar em **cenários extremos de mercado**.
 
-O projeto foi desenvolvido com foco em **boas práticas de front-end**, **tipagem forte** e **arquitetura escalável**, sendo ideal para demonstração em **portfólio profissional**.
+O projeto foi desenvolvido com foco em **boas práticas de front-end**, **tipagem forte** e **arquitetura escalável**.
 
 ---
 
@@ -113,3 +113,4 @@ npm run dev
 
 Este projeto é destinado a fins educacionais e demonstrativos.
 Sinta-se à vontade para estudar, adaptar e evoluir.
+
