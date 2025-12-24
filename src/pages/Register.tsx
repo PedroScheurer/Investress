@@ -2,7 +2,13 @@ import { RegisterForm } from "../components"
 
 const Register = () => {
   return (
-    <RegisterForm />
+    <div style={{
+      display: "flex",
+      alignItems: "center",
+      minHeight: "100vh",
+    }}>
+      <RegisterForm />
+    </div>
   )
 }
 

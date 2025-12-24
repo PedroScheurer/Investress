@@ -5,7 +5,7 @@ export const useModal = () => {
     const ctx = useContext(ModalContext);
 
     if (!ctx) {
-        throw new Error("ModalContext deve ser usado dentro de <ModalContextProvider/>")
+        throw new Error("ModalContext deve ser usado dentro de <ModalProvider/>")
     }
 
     return ctx

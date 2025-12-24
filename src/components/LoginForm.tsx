@@ -5,6 +5,12 @@ import Control from './ui/Control'
 import Button, { ButtonStyles } from './ui/Button'
 import Title from './ui/Title'
 import classes from "./Form.module.css"
+import { api } from '../utils/axiosConfig'
+
+type LoginFormType = {
+    email: string,
+    password: string,
+}
 
 const LoginForm = () => {
     const { formData, handleChange } = useHandlerInput({ email: "", senha: "" })
@@ -32,3 +38,18 @@ const LoginForm = () => {
 }
 
 export default LoginForm
+
+const action = async (formData: LoginFormType) => {
+    
+    const res = await api.post("/auth/login", formData, {headers:{
+        "Content-Type" : "application/json"
+    }})
+
+    if(!res.data){
+        throw new Error("Login invalido")
+    }
+
+    sessionStorage.setItem
+    console.log(res.data);
+    return res.data;
+}
