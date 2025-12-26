@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { AuthContext } from "../contexts/AuthContext"
 
 type Props = {
@@ -6,7 +6,14 @@ type Props = {
 }
 
 const AuthProvider: React.FC<Props> = ({ children }) => {
-    const [token, setToken] = useState<string | null>(null)
+    const [token, setToken] = useState<string | null>(() => sessionStorage.getItem('token'))
+
+    useEffect(() => {
+        if (token) {
+            return sessionStorage.setItem('token', token)
+        }
+        return sessionStorage.removeItem('token')
+    }, [token])
 
     const login = (newToken: string) => {
         setToken(newToken)

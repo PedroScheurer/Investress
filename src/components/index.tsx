@@ -12,6 +12,7 @@ import NavButton from "./NavButton";
 import TesteDetails from "./TesteDetails";
 import TestesHome from "./TestesHome";
 import Investimentos from "./Investimentos";
+import PrivateRoute from "./PrivateRoute";
 
 export {
     LoginForm,
@@ -28,4 +29,5 @@ export {
     TestesHome,
     TesteDetails,
     Investimentos,
+    PrivateRoute,
 }

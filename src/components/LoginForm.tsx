@@ -1,55 +1,64 @@
-import { Link, useNavigate } from 'react-router'
+import React, { useEffect } from 'react'
+import { Form, Link, useNavigate } from 'react-router'
 
-import { useHandlerInput } from '../hooks/useHandlerInput'
-import Control from './ui/Control'
-import Button, { ButtonStyles } from './ui/Button'
-import Title from './ui/Title'
+import { Title, Button, Control, Loading } from './ui'
+import { ButtonStyles } from './ui/Button'
 import classes from "./Form.module.css"
-import { api } from '../utils/axiosConfig'
+import { useAuth } from '../hooks/useAuth'
+import { useHandlerInput } from '../hooks/useHandlerInput'
 
-type LoginFormType = {
-    email: string,
-    password: string,
+type LoginError = {
+    message: string,
+    success: false,
+};
+
+type LoginSuccess = {
+    token: string,
+    success: true,
+};
+
+
+type Props = {
+    isSubmitting: boolean,
+    data: LoginError | LoginSuccess,
 }
 
-const LoginForm = () => {
+const LoginForm: React.FC<Props> = ({ isSubmitting, data }) => {
     const { formData, handleChange } = useHandlerInput({ email: "", senha: "" })
     const navigate = useNavigate();
+    const { login } = useAuth();
+    const parsedData = typeof data === 'string' ? JSON.parse(data) : data;
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
-        navigate('/carteira')
-    }
+    const isError = parsedData?.success === false;
+    const errorMessage = parsedData?.message;
+
+    useEffect(() => {
+        if (data && data.success) {
+            login(data.token)
+            navigate('/carteira')
+        }
+    }, [data, navigate])
 
     return (
-        <div className={classes.form}>
-            <Title>Login</Title>
-            <form onSubmit={handleSubmit}>
-                <Control id='email' label='Email'
-                    props={{ type: 'email', placeholder: 'Digite seu email', name: 'email', onChange: handleChange, value: formData.email }} />
-                <Control id='senha' label='Senha'
-                    props={{ type: 'password', placeholder: 'Digite sua senha', name: 'senha', onChange: handleChange, value: formData.senha }} />
-                <Button className={ButtonStyles.solid}>Entrar</Button>
-            </form>
-            <span>Não tem uma conta?<Link to="/register"> Criar Conta</Link></span>
-        </div>
+        <>
+            {isSubmitting && <Loading />}
 
+            <div className={classes.form}>
+                <Title>Login</Title>
+                <Form method='post'>
+                    <Control id='email' label='Email'
+                        props={{ type: 'email', placeholder: 'Digite seu email', name: 'email', onChange: handleChange, value: formData.email }} />
+                    <Control id='senha' label='Senha'
+                        props={{ type: 'password', placeholder: 'Digite sua senha', name: 'senha', onChange: handleChange, value: formData.senha }} />
+                    {parsedData && !parsedData.success && (
+                        <p style={{ color: 'red' }}>{parsedData.message}</p>
+                    )}
+                    <Button className={ButtonStyles.solid}>Entrar</Button>
+                </Form>
+                <span>Não tem uma conta?<Link to="/register"> Criar Conta</Link></span>
+            </div>
+        </>
     )
 }
 
 export default LoginForm
-
-const action = async (formData: LoginFormType) => {
-    
-    const res = await api.post("/auth/login", formData, {headers:{
-        "Content-Type" : "application/json"
-    }})
-
-    if(!res.data){
-        throw new Error("Login invalido")
-    }
-
-    sessionStorage.setItem
-    console.log(res.data);
-    return res.data;
-}

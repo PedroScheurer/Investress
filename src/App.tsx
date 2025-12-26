@@ -1,12 +1,14 @@
 import { createBrowserRouter, RouterProvider } from "react-router"
 import { Home, Login, Register, Carteira, Testes, RootLayout } from "./pages"
-import { CarteiraHome, Investimentos, TesteDetails, TestesHome } from "./components"
+import { CarteiraHome, Investimentos, TesteDetails, TestesHome, PrivateRoute } from "./components"
 import ModalProvider from "./providers/ModalProvider"
+import AuthProvider from "./providers/AuthProvider"
+import { loginAction, register } from "./components/services/authServices"
 import "./App.css"
 
 const router = createBrowserRouter([
   {
-    path: '/', element: <RootLayout />, children: [
+    path: '/', element: <PrivateRoute><RootLayout /></PrivateRoute>, children: [
       { index: true, element: <Home /> },
       {
         path: "carteira", element: <Carteira />, children: [
@@ -22,15 +24,17 @@ const router = createBrowserRouter([
       },
     ],
   },
-  { path: "/login", element: <Login /> },
-  { path: "/register", element: <Register /> },
+  { path: "/login", element: <Login />, action: loginAction  },
+  { path: "/register", element: <Register />, action: register },
 ])
 
 const App = () => {
   return (
-    <ModalProvider>
-      <RouterProvider router={router} />
-    </ModalProvider>
+    <AuthProvider>
+      <ModalProvider>
+        <RouterProvider router={router} />
+      </ModalProvider>
+    </AuthProvider>
   )
 }
 
