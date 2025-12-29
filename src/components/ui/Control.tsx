@@ -4,11 +4,10 @@ import classes from "./Control.module.css"
 type Props = {
     id: string,
     label: string,
-    props: object,
     className?: string,
 } & React.InputHTMLAttributes<HTMLInputElement>
 
-const Control: React.FC<Props> = ({ id, label, props, className }) => {
+const Control: React.FC<Props> = ({ id, label, className, ...props }) => {
     return (
         <div className={`${classes.control} ${className}`}>
             <label htmlFor={id}>{label}</label>

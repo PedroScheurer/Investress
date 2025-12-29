@@ -4,7 +4,7 @@ import { validarEmail, validarSenha } from "../../utils";
 
 type LoginFormType = {
     email: string,
-    password: string,
+    senha: string,
 }
 
 export const loginAction: ActionFunction = async ({ request }: ActionFunctionArgs) => {
@@ -12,17 +12,14 @@ export const loginAction: ActionFunction = async ({ request }: ActionFunctionArg
 
     const data: LoginFormType = {
         email: formData.get("email") as string,
-        password: formData.get("password") as string,
+        senha: formData.get("senha") as string,
     }
 
-    if (!validarEmail(data.email)) {
-        return new Response(JSON.stringify({ message: "Email/Senha invalidos", success: false }));
-    }
-    if (!validarSenha(data.password)) {
-        return new Response(JSON.stringify({ message: "Email/Senha invalidos", success: false }));
+    if (!validarEmail(data.email) || !validarSenha(data.senha)) {
+        return { message: "Email/Senha invalidos", success: false };
     }
 
-    loginPost(data)
+    return await loginPost(data)
 }
 
 async function loginPost(data: LoginFormType) {
@@ -33,21 +30,18 @@ async function loginPost(data: LoginFormType) {
             }
         })
 
-        if (!res.data) {
-            throw new Error("ERRO: " + res.statusText)
-        }
+        return { success: true, token: res.data, };
 
-        return new Response(JSON.stringify({ token: res.data, success: true }));
-
-    } catch (error) {
-        throw new Response(`${error}`, { status: 500 });
+    } catch (error: any) {
+        const msg = error.response?.data?.message || error.message || "Um erro ocorreu, tente novamente.";
+        return { message: msg, status: 500 }
     }
 }
 
 type RegisterFormType = {
     nome: string,
     email: string,
-    password: string,
+    senha: string,
 }
 
 export const register: ActionFunction = async ({ request }: ActionFunctionArgs) => {
@@ -55,14 +49,7 @@ export const register: ActionFunction = async ({ request }: ActionFunctionArgs) 
     const data: RegisterFormType = {
         nome: formData.get("nomeCompleto") as string,
         email: formData.get("email") as string,
-        password: formData.get("password") as string,
-    }
-
-    if (!validarEmail(data.email)) {
-        return new Response(JSON.stringify({ message: "Login/Email invalido" }), { status: 409 });
-    }
-    if (!validarSenha(data.password)) {
-        return new Response(JSON.stringify({ message: "Senha invalida, deve conter 6 dígitos e 1 letra maíscula e 1 mínuscula" }), { status: 409 });
+        senha: formData.get("senha") as string,
     }
 
     try {
@@ -72,13 +59,11 @@ export const register: ActionFunction = async ({ request }: ActionFunctionArgs) 
             }
         })
 
-        if (!res.data) {
-            throw new Error("Erro no cadastro" + res.statusText)
-        }
-        return loginPost({ email: data.email, password: data.password });
+        return await loginPost({ email: data.email, senha: data.senha });
 
-    } catch (error) {
-        throw new Response(`${error}`, { status: 500 });
+    } catch (error: any) {
+        const msg = error.response?.data?.message || error.message || "Um erro ocorreu, tente novamente.";
+        return { message: msg, status: 500 };
     }
 
 }

@@ -30,6 +30,26 @@
   height: auto;
 }
 
+.error {
+  color: #ca0000;
+  font-weight: 500;
+  margin: 0 0 10px 0;
+}
+
+li .error  {
+  margin: 0;
+}
+
+.success {
+  color: #13a700;
+  font-weight: 500;
+  margin: 0 0 10px 0;
+}
+
+li .success  {
+  margin: 0;
+}
+
 @media (min-width:768px) {
   .icon {
     width: 50px;

@@ -11,7 +11,7 @@
   height: 50px;
   border: 6px solid #E6E6E6;
   border-radius: 50%;
-  border-top-color: #C77DFF;
+  border-top-color: #007f5f;
   animation: is-rotating 1s linear infinite;
 }
 
