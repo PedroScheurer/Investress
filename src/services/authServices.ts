@@ -1,6 +1,6 @@
 import type { ActionFunction, ActionFunctionArgs } from "react-router";
-import { api } from "../../utils/axiosConfig";
-import { validarEmail, validarSenha } from "../../utils";
+import { api } from "../utils/axiosConfig";
+import { validarEmail, validarSenha } from "../utils";
 
 type LoginFormType = {
     email: string,
@@ -53,7 +53,7 @@ export const register: ActionFunction = async ({ request }: ActionFunctionArgs) 
     }
 
     try {
-        const res = await api.post("/auth/register", data, {
+        await api.post("/auth/register", data, {
             headers: {
                 "Content-Type": "application/json"
             }

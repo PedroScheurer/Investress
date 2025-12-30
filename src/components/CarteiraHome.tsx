@@ -1,7 +1,10 @@
+import { useLoaderData } from 'react-router'
+
 import Container from './Container'
 import Button, { ButtonStyles } from './ui/Button'
 import Itens from './Itens'
 import AtivoItem from './AtivoItem'
+
 import { useModal } from '../hooks/useModal'
 
 const mockedAtivos = [
@@ -18,6 +21,7 @@ const totalValorInvestido = mockedAtivos.reduce((total, ativo) => {
 
 const CarteiraHome = () => {
     const { open } = useModal()
+    const data = useLoaderData();
     return (
         <Container title='Carteira de Investimentos'>
             <div className='header'>
@@ -25,7 +29,7 @@ const CarteiraHome = () => {
                 <Button className={`end ${ButtonStyles.solid}`} onClick={() => open('modalNovoInvestimento')} >Novo investimento</Button>
             </div>
             <Itens>
-                {mockedAtivos.map(ativo => (
+                {mockedAtivos.map((ativo) => (
                     <AtivoItem key={ativo.id} ativo={ativo} peso={ativo.valor / totalValorInvestido} />
                 ))}
             </Itens>

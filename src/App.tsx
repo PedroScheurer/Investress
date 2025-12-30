@@ -3,16 +3,24 @@ import { Home, Login, Register, Carteira, Testes, RootLayout } from "./pages"
 import { CarteiraHome, Investimentos, TesteDetails, TestesHome, PrivateRoute } from "./components"
 import ModalProvider from "./providers/ModalProvider"
 import AuthProvider from "./providers/AuthProvider"
-import { loginAction, register } from "./components/services/authServices"
+import { loginAction, register } from "./services/authServices"
+import { novoInvestimentoAction, investimentoLoader } from "./services/investimentoService"
 import "./App.css"
 
 const router = createBrowserRouter([
   {
-    path: '/', element: <PrivateRoute><RootLayout /></PrivateRoute>, children: [
+    path: '/', element:
+      // <PrivateRoute>
+      <RootLayout />
+    // </PrivateRoute>
+    , children: [
       { index: true, element: <Home /> },
       {
         path: "carteira", element: <Carteira />, children: [
-          { index: true, element: <CarteiraHome /> },
+          {
+            index: true, element: <CarteiraHome />,
+            action: novoInvestimentoAction, loader: investimentoLoader
+          },
           { path: ":tipo", element: <Investimentos /> }
         ]
       },
@@ -24,7 +32,7 @@ const router = createBrowserRouter([
       },
     ],
   },
-  { path: "/login", element: <Login />, action: loginAction  },
+  { path: "/login", element: <Login />, action: loginAction },
   { path: "/register", element: <Register />, action: register },
 ])
 
