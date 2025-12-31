@@ -16,10 +16,13 @@ const router = createBrowserRouter([
     , children: [
       { index: true, element: <Home /> },
       {
-        path: "carteira", element: <Carteira />, children: [
+        path: "carteira", 
+        element: <Carteira />,
+        action: novoInvestimentoAction, 
+        loader: investimentoLoader, 
+        children: [
           {
             index: true, element: <CarteiraHome />,
-            action: novoInvestimentoAction, loader: investimentoLoader
           },
           { path: ":tipo", element: <Investimentos /> }
         ]

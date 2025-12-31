@@ -19,16 +19,18 @@
 .details {
     background: none;
     border: none;
-    border-radius: 30px;
+    padding: 5px;
+    border-radius: 10px;
     cursor: pointer;
+    transition: background-color 200ms;
 }
 
 .details img {
-    width: 30px;
+    width: 20px;
 }
 
-.details:hover {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+.details:hover{
+    background-color: #7abb83;
 }
 
 @media (min-width:768px) {

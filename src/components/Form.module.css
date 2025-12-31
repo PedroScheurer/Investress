@@ -1,14 +1,13 @@
 .form {
     display: flex;
     flex-direction: column;
-    max-width: 500px;
+    width: 90%;
     padding: 10px 0;
     margin: 5px 15px;
 }
 
 .destaque {
     grid-column: span 4;
-    grid-row: span 2;
 }
 
 .vertical {
@@ -16,11 +15,11 @@
 }
 
 .largo {
-    grid-column: span 3;
+    grid-column: span 4;
 }
 
 .normal {
-    grid-column: span 1;
+    grid-column: span 2;
 }
 
 .grid {
@@ -32,7 +31,7 @@
 @media (min-width:768px) {
     .grid {
         display: grid;
-        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-columns: repeat(4, 1fr);
     }
 
 }

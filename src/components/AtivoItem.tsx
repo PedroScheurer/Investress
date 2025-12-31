@@ -1,7 +1,10 @@
 import React from 'react'
+import { useNavigate } from 'react-router'
+
 import classes from "./Item.module.css"
 import Title from './ui/Title'
-import { useNavigate } from 'react-router'
+
+import { formatBRL } from '../utils'
 
 type Props = {
     ativo: {
@@ -18,7 +21,7 @@ const AtivoItem: React.FC<Props> = ({ ativo, peso }) => {
         <div className={classes.item} onClick={()=>navigate(`${ativo.tipo}`)}>
             <div>
                 <Title>{ativo.tipo}</Title>
-                <span>R$ {ativo.valor}</span>
+                <span>{formatBRL(ativo.valor)}</span>
             </div>
             <div>
                 %{(peso * 100).toFixed(2)}
