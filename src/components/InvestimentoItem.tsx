@@ -1,17 +1,16 @@
 import React, { useState } from 'react'
 import classes from "./Item.module.css"
 import Title from './ui/Title'
+import DetailsOptions from './ui/DetailsOptions'
+
 import { formatBRL } from '../utils'
 import moreButton from "../assets/more.png"
-import DetailsOptions from './ui/DetailsOptions'
 import { useModal } from '../hooks/useModal'
+import type { Investimento } from '../types/investimentosData'
+import { Form } from 'react-router'
 
 type Props = {
-    investimento: {
-        id: string,
-        nome: string,
-        valor: number,
-    }
+    investimento: Investimento,
 }
 
 const InvestimentoItem: React.FC<Props> = ({ investimento }) => {
@@ -22,17 +21,24 @@ const InvestimentoItem: React.FC<Props> = ({ investimento }) => {
         <div className={classes.item}>
             <div>
                 <Title>{investimento.nome}</Title>
-                <span>{formatBRL(investimento.valor)}</span>
+                <span><b>Valor investido:</b> {formatBRL(investimento.valorInvestido)}</span><br />
+                <span><b>Valor atual:</b> {formatBRL(investimento.valorAtual)}</span><br />
+                <span><b>Retorno do investimento:</b> {formatBRL(investimento.retornoInvestimento)}</span>
             </div>
             <div className='header end'>
                 {open &&
                     <DetailsOptions>
-                        <li onClick={()=>openModal("modalNovoInvestimento") }>
+                        <li onClick={() => openModal("modalNovoInvestimento")}>
                             Editar
                         </li>
-                        <li>
-                            Excluir
-                        </li>
+                        <Form method='delete' action={`/carteira/${investimento.type}/${investimento.id}/deletar`}>
+                            <li>
+                                <button>
+                                    Excluir
+                                </button>
+                            </li>
+                        </Form>
+
                     </DetailsOptions>
                 }
                 <button className={`end ${classes.details}`} onClick={() => setOpen(!open)}>

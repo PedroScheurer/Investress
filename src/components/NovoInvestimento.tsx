@@ -8,8 +8,16 @@ import classes from "./Form.module.css"
 import { useHandlerInput } from '../hooks/useHandlerInput'
 import { useModal } from '../hooks/useModal'
 
+const initialFormData = {
+    nome: "",
+    tipo: "",
+    valorAtual: "",
+    valorInvestido: ""
+};
+
+
 const NovoInvestimento = () => {
-    const { formData, handleChange } = useHandlerInput({ valorInvestido: '', valorAtual: '', nome: '', tipo: '' })
+    const { formData, setFormData, handleChange } = useHandlerInput(initialFormData)
     const { close } = useModal()
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -18,6 +26,8 @@ const NovoInvestimento = () => {
         ) {
             e.preventDefault()
         }
+        close()
+        setFormData(initialFormData)
     }
 
     return (

@@ -33,6 +33,14 @@
     background-color: #7abb83;
 }
 
+.positivo{
+    color: rgb(0, 195, 0);
+}
+
+.negativo{
+    color: rgb(255, 35, 35);
+}
+
 @media (min-width:768px) {
     .item {
         flex-direction: row;

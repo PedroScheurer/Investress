@@ -4,7 +4,7 @@ import { CarteiraHome, Investimentos, TesteDetails, TestesHome, PrivateRoute } f
 import ModalProvider from "./providers/ModalProvider"
 import AuthProvider from "./providers/AuthProvider"
 import { loginAction, register } from "./services/authServices"
-import { novoInvestimentoAction, investimentoLoader } from "./services/investimentoService"
+import { novoInvestimentoAction, investimentoLoader, investimentoPorTipoLoader, deleteInvestimento } from "./services/investimentoService"
 import "./App.css"
 
 const router = createBrowserRouter([
@@ -16,15 +16,21 @@ const router = createBrowserRouter([
     , children: [
       { index: true, element: <Home /> },
       {
-        path: "carteira", 
+        id: "carteira",
+        path: "carteira",
         element: <Carteira />,
-        action: novoInvestimentoAction, 
-        loader: investimentoLoader, 
+        action: novoInvestimentoAction,
+        loader: investimentoLoader,
         children: [
           {
             index: true, element: <CarteiraHome />,
           },
-          { path: ":tipo", element: <Investimentos /> }
+          {
+            path: ":tipo", element: <Investimentos />,
+            loader: investimentoPorTipoLoader, children: [
+              { path: ":id/deletar", action: deleteInvestimento }
+            ]
+          },
         ]
       },
       {

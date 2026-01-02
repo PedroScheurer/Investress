@@ -31,6 +31,7 @@ export const useHandlerInput = <T extends object>(initialState: T) => {
     return {
         formData,
         didEdit,
+        setFormData,
         handleChange,
         handleFocus,
         handleBlur,

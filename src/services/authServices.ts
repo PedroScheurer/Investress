@@ -4,7 +4,7 @@ import { validarEmail, validarSenha } from "../utils";
 
 type LoginFormType = {
     email: string,
-    senha: string,
+    password: string,
 }
 
 export const loginAction: ActionFunction = async ({ request }: ActionFunctionArgs) => {
@@ -12,10 +12,10 @@ export const loginAction: ActionFunction = async ({ request }: ActionFunctionArg
 
     const data: LoginFormType = {
         email: formData.get("email") as string,
-        senha: formData.get("senha") as string,
+        password: formData.get("senha") as string,
     }
 
-    if (!validarEmail(data.email) || !validarSenha(data.senha)) {
+    if (!validarEmail(data.email) || !validarSenha(data.password)) {
         return { message: "Email/Senha invalidos", success: false };
     }
 
