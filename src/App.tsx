@@ -6,6 +6,7 @@ import AuthProvider from "./providers/AuthProvider"
 import { loginAction, register } from "./services/authServices"
 import { novoInvestimentoAction, investimentoLoader, investimentoPorTipoLoader, deleteInvestimento } from "./services/investimentoService"
 import "./App.css"
+import { novoTesteAction } from "./services/testeService"
 
 const router = createBrowserRouter([
   {
@@ -14,7 +15,7 @@ const router = createBrowserRouter([
       <RootLayout />
     // </PrivateRoute>
     , children: [
-      { index: true, element: <Home /> },
+      // { index: true, element: <Home /> },
       {
         id: "carteira",
         path: "carteira",
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
       {
         path: "testes", element: <Testes />, children: [
           { index: true, element: <TestesHome /> },
-          { path: ":tipo", element: <TesteDetails /> }
+          { path: ":metric", element: <TesteDetails />, action: novoTesteAction }
         ]
       },
     ],

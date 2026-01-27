@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router'
 
-import classes from "./Item.module.css"
+import classes from "../styles/Item.module.css"
 import Title from './ui/Title'
 
 import { formatBRL } from '../utils'

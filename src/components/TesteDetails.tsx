@@ -1,16 +1,20 @@
-import Container from './Container'
-import { useParams } from 'react-router'
+import { useActionData, useParams } from 'react-router'
 
+import Container from './Container'
+import TesteForm from './TesteForm'
+import TesteResults from './TesteResults'
 
 const TesteDetails = () => {
-    const { tipo } = useParams()
+    const { metric } = useParams()
+    const data = useActionData();
+
     return (
-        <Container title={`${tipo}`} navLevelUp>
+        <Container title={`${metric}`}>
             <div>
-                formulario do teste
+                <TesteForm />
             </div>
             <div>
-                resultado do teste
+                <TesteResults resultsData={data} />
             </div>
         </Container>
     )

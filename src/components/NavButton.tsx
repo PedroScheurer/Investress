@@ -1,4 +1,4 @@
-import classes from "./NavButton.module.css"
+import classes from "../styles/NavButton.module.css"
 import menuBurguer from "../assets/menu-burger.svg"
 
 type Props = {

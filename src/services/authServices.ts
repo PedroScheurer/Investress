@@ -59,7 +59,7 @@ export const register: ActionFunction = async ({ request }: ActionFunctionArgs) 
             }
         })
 
-        return await loginPost({ email: data.email, senha: data.senha });
+        return await loginPost({ email: data.email, password: data.senha });
 
     } catch (error: any) {
         const msg = error.response?.data?.message || error.message || "Um erro ocorreu, tente novamente.";

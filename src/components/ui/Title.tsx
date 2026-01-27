@@ -1,5 +1,5 @@
 import React from 'react'
-import classes from "./Title.module.css"
+import classes from "../../styles/Title.module.css"
 
 type Props = {
     children : React.ReactNode,

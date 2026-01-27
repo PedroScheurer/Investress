@@ -1,5 +1,5 @@
 import { NavLink } from "react-router"
-import classes from "./MainNavigation.module.css"
+import classes from "../styles/MainNavigation.module.css"
 import logo from "../assets/logo.png"
 
 type Props = {

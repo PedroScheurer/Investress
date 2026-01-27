@@ -3,7 +3,7 @@ import { Form } from 'react-router'
 
 import { Modal, Button, Control, Title } from './ui'
 import { ButtonStyles } from './ui/Button'
-import classes from "./Form.module.css"
+import classes from "../styles/Form.module.css"
 
 import { useHandlerInput } from '../hooks/useHandlerInput'
 import { useModal } from '../hooks/useModal'

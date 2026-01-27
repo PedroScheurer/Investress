@@ -1,11 +1,11 @@
+import { useEffect } from 'react'
 import { Form, Link, useNavigate } from 'react-router'
 
 import { Control, Button, Title, Loading } from './ui'
 import { ButtonStyles } from './ui/Button'
-import classes from "./Form.module.css"
 
+import classes from "../styles/Form.module.css"
 import { useHandlerInput } from '../hooks/useHandlerInput'
-import { useEffect } from 'react'
 import { useAuth } from '../hooks/useAuth'
 import { validarEmail, validarNome, validarSenha } from '../utils'
 import type { LoginError, LoginSuccess } from "../types/loginResponse"

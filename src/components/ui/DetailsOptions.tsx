@@ -1,5 +1,5 @@
 import React from 'react'
-import classes from "./DetailsOptions.module.css"
+import classes from "../../styles/DetailsOptions.module.css"
 
 type Props = {
     children: React.ReactNode,

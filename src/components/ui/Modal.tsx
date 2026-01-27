@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { useModal } from '../../hooks/useModal'
-import classes from "./Modal.module.css"
+import classes from "../../styles/Modal.module.css"
 
 type Props = {
     children: React.ReactElement,

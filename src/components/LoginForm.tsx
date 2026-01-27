@@ -3,7 +3,7 @@ import { Form, Link, useNavigate } from 'react-router'
 
 import { Title, Button, Control, Loading } from './ui'
 import { ButtonStyles } from './ui/Button'
-import classes from "./Form.module.css"
+import classes from "../styles/Form.module.css"
 import { useAuth } from '../hooks/useAuth'
 import { useHandlerInput } from '../hooks/useHandlerInput'
 import type { LoginError, LoginSuccess } from "../types/loginResponse"

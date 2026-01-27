@@ -1,5 +1,5 @@
 import React from 'react'
-import classes from "./Control.module.css"
+import classes from "../../styles/Control.module.css"
 
 type Props = {
     id: string,

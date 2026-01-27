@@ -1,12 +1,14 @@
 import React from 'react'
-import classes from "./Item.module.css"
-import Title from './ui/Title'
 import { useNavigate } from 'react-router'
+
+import Title from './ui/Title'
+import classes from "../styles/Item.module.css"
 
 type Teste = {
     teste: {
         id: string,
-        nome: string,
+        nome: string
+        path: string,
         descricao: string
     }
 }
@@ -14,7 +16,7 @@ type Teste = {
 const TesteItem: React.FC<Teste> = ({ teste }) => {
     const navigate = useNavigate()
     return (
-        <div className={classes.item} onClick={()=>navigate(`${teste.nome}`)}>
+        <div className={classes.item} onClick={() => navigate(`${teste.path}`)}>
             <Title>{teste.nome}</Title>
             <div>
                 <span>

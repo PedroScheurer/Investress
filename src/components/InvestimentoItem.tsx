@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import classes from "./Item.module.css"
+import { Form } from 'react-router'
+
 import Title from './ui/Title'
 import DetailsOptions from './ui/DetailsOptions'
 
@@ -7,7 +8,7 @@ import { formatBRL } from '../utils'
 import moreButton from "../assets/more.png"
 import { useModal } from '../hooks/useModal'
 import type { Investimento } from '../types/investimentosData'
-import { Form } from 'react-router'
+import classes from "../styles/Item.module.css"
 
 type Props = {
     investimento: Investimento,

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useLoaderData, useParams } from 'react-router'
+
 import Container from './Container'
 import Itens from './Itens'
 import InvestimentoItem from './InvestimentoItem'

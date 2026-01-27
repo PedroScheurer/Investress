@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Outlet } from "react-router"
 import { MainNavigation, NavButton } from "../components"
-import classes from "./RootLayout.module.css"
+import classes from "../styles/RootLayout.module.css"
 
 const RootLayout = () => {
     const [navStatus, setNavStatus] = useState<boolean>(true)
