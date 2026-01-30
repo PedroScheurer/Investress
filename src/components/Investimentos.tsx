@@ -4,6 +4,7 @@ import { useLoaderData, useParams } from 'react-router'
 import Container from './Container'
 import Itens from './Itens'
 import InvestimentoItem from './InvestimentoItem'
+import { formatTitle } from '../utils'
 
 type Investimento = {
   id: number,
@@ -25,7 +26,7 @@ const Investimentos = () => {
 
 
   return (
-    <Container title={`${tipo}`} navLevelUp>
+    <Container title={formatTitle(tipo || "Investimento")} navLevelUp>
       <Itens>
         {investimentos.map(investimento => (
           <InvestimentoItem key={investimento.id} investimento={investimento} />

@@ -7,12 +7,11 @@ type NovoTesteForm = {
 }
 
 export const novoTesteAction: ActionFunction = async ({ request, params }: ActionFunctionArgs<NovoTesteForm>) => {
-    // const token = sessionStorage.getItem('token');
+     const token = sessionStorage.getItem('token');
 
-    // if (!token) {
-    //     return redirect('/login')
-    // }
-    const token = "123";
+     if (!token) {
+         return redirect('/login')
+     }
 
     const formData = await request.formData()
     const data: NovoTesteForm = {

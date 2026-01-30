@@ -11,9 +11,9 @@ import { novoTesteAction } from "./services/testeService"
 const router = createBrowserRouter([
   {
     path: '/', element:
-      // <PrivateRoute>
-      <RootLayout />
-    // </PrivateRoute>
+      <PrivateRoute>
+        <RootLayout />
+      </PrivateRoute>
     , children: [
       // { index: true, element: <Home /> },
       {

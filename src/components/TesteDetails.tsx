@@ -20,7 +20,7 @@ const TesteDetails = () => {
 
     useEffect(() => {
         if (isInvalidMetric) {
-            navigate("/stress-test", { replace: true });
+            navigate("/stress-test");
         }
     }, [isInvalidMetric, navigate]);
 
@@ -37,6 +37,7 @@ const TesteDetails = () => {
                 </div>
                 <div>
                     {data && data.success && <TesteResults data={data} />}
+                    {data && !data.success && <p className="error">{data.message}</p>}
                 </div>
             </Container>
         </>
