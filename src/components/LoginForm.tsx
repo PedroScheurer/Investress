@@ -28,7 +28,7 @@ const LoginForm: React.FC<Props> = ({ isSubmitting, data }) => {
     return (
         <>
             {isSubmitting && <Loading />}
-            <div className={classes.form}>
+            <div className={classes.form} style={{maxWidth:"400px"}}>
                 <Title>Login</Title>
                 <Form method='post'>
                     <Control id='email' label='Email'

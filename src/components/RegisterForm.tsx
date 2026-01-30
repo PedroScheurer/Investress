@@ -42,7 +42,7 @@ const RegisterForm: React.FC<Props> = ({ isSubmitting, data }) => {
     return (
         <>
             {isSubmitting && <Loading />}
-            <div className={classes.form}>
+            <div className={classes.form} style={{maxWidth:"400px"}}>
                 <Title>Cadastrar-se</Title>
                 <Form method='post' onSubmit={handleSubmit}>
                     <Control id='nome' label='Nome Completo'

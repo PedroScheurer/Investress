@@ -23,3 +23,11 @@ export const formatBRL = (value: number) => {
         maximumFractionDigits: 2,
     }).format(value);
 };
+
+export const formatTitle = (title: string) => {
+    return capitalizeWords(title.replaceAll("_", " "));
+}
+
+function capitalizeWords(words: string) {
+    return words.replace(/\b\w/g, char => char.toUpperCase());
+}

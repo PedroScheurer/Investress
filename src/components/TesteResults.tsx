@@ -2,14 +2,14 @@ import React from "react"
 import Container from "./Container"
 
 type Props = {
-    resultsData: { teste: string }
+    data: { success: true, results: { var: number }, }
 }
 
-const TesteResults: React.FC<Props> = ({ resultsData }) => {
+const TesteResults: React.FC<Props> = ({ data }) => {
 
     return (
         <Container title={`Resultado`}>
-            <h1>{resultsData.teste}</h1>
+            <h4>{data.results.var}</h4>
         </Container>
     )
 }

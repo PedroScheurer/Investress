@@ -17,9 +17,9 @@ const MainNavigation: React.FC<Props> = ({ navStatus }) => {
                 <img src={logo} alt="" />
             </div>
             <ul>
-                <li>
+                {/* <li>
                     <NavLink to='/' className={({ isActive }) => isActive ? classes.active : undefined}>Início</NavLink>
-                </li>
+                </li> */}
                 <li>
                     <NavLink to='/carteira' className={({ isActive }) => isActive ? classes.active : undefined}>Carteira</NavLink>
                 </li>

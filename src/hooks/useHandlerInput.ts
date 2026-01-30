@@ -22,6 +22,12 @@ export const useHandlerInput = <T extends object>(initialState: T) => {
         })
     }
 
+    const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setDidEdit((prevDidEdit) => {
+            return {...prevDidEdit, [e.target.name] : false }
+        })
+    }
+
     const handleBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
         setDidEdit((prevDidEdit) => {
             return {...prevDidEdit, [e.target.name] : true }
@@ -35,5 +41,6 @@ export const useHandlerInput = <T extends object>(initialState: T) => {
         handleChange,
         handleFocus,
         handleBlur,
+        handleSelect,
     }
 }
